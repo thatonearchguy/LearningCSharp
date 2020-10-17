@@ -27,16 +27,16 @@ namespace Code.TheBasics
         public static int QuadrantCircle(double xCoordinate, double yCoordinate, double radius, double xCord2, double yCord2, int option){
             //Again, like my CLI UI implementation of this function, the actual "brains" of this function are probably really not that elegant at all. 
             if (option == 1){
-                if (xCoordinate > 0 || yCoordinate > 0) return 1;
-                else if (xCoordinate < 0 || yCoordinate > 0) return 2;
-                else if (xCoordinate < 0 || yCoordinate < 0) return 3;
-                else if (xCoordinate > 0 || yCoordinate < 0) return 4;
+                if (xCoordinate > 0 && yCoordinate > 0) return 1;
+                else if (xCoordinate < 0 && yCoordinate > 0) return 2;
+                else if (xCoordinate < 0 && yCoordinate < 0) return 3;
+                else if (xCoordinate > 0 && yCoordinate < 0) return 4;
             }
             else if (option == 2){
-                if ((Math.Pow(xCoordinate, 2) + Math.Pow(yCoordinate, 2)) > Math.Pow(radius, 2)) return 1;
+                if ((Math.Pow(xCoordinate, 2) + Math.Pow(yCoordinate, 2)) >= Math.Pow(radius, 2)) return 1;
             }
             else if (option == 3){
-                if ((Math.Pow((xCoordinate - xCord2), 2) + Math.Pow((yCoordinate - yCord2), 2)) > Math.Pow(radius, 2)) return 1;
+                if ((Math.Pow((xCoordinate - xCord2), 2) + Math.Pow((yCoordinate - yCord2), 2)) >= Math.Pow(radius, 2)) return 1;
             }
             return 0;
         }

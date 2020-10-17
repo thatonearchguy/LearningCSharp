@@ -32,5 +32,27 @@ namespace Testing.TheBasics
             Assert.AreEqual(GreatestThree(234, 546, 78788), 78788);
             Assert.AreEqual(GreatestThree(0, 0, 1), 1);
         }
+        [Test]
+        public static void QuadrantCircleTest()
+        {
+            Assert.AreEqual(QuadrantCircle(1, 1, 0, 0, 0, 1), 1);
+            Assert.AreEqual(QuadrantCircle(-3, -79, 0, 0, 0, 1), 3);
+            Assert.AreEqual(QuadrantCircle(3, 0, 3, 0, 0, 2), 1);
+            Assert.AreEqual(QuadrantCircle(5, 2, 3, 2, 2, 3), 1);
+        }
+        [Test]
+        public static void StudentGradeTest()
+        {
+            Assert.AreEqual(StudentGrade(10, 10, 10), "F");
+            Assert.AreEqual(StudentGrade(90, 0, 90), "C");
+            Assert.AreEqual(StudentGrade(85, 100, 95), "A*");
+        }
+        [Test]
+        public static void TriangleTest()
+        {
+            Assert.AreEqual(Triangle(3, 3, 3), "Equilateral");
+            Assert.AreEqual(Triangle(4, 3, 4), "Isosceles");
+            Assert.AreEqual(Triangle(4, 3, 10), "Impossible");
+        }
     }
 }
