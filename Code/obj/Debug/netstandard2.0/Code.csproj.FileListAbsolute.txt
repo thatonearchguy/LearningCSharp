@@ -1,0 +1,8 @@
+/home/karan/Documents/Computing/SC/LearningC#/Code/obj/Debug/netstandard2.0/Code.csprojAssemblyReference.cache
+/home/karan/Documents/Computing/SC/LearningC#/Code/obj/Debug/netstandard2.0/Code.AssemblyInfoInputs.cache
+/home/karan/Documents/Computing/SC/LearningC#/Code/obj/Debug/netstandard2.0/Code.AssemblyInfo.cs
+/home/karan/Documents/Computing/SC/LearningC#/Code/bin/Debug/netstandard2.0/Code.deps.json
+/home/karan/Documents/Computing/SC/LearningC#/Code/bin/Debug/netstandard2.0/Code.dll
+/home/karan/Documents/Computing/SC/LearningC#/Code/bin/Debug/netstandard2.0/Code.pdb
+/home/karan/Documents/Computing/SC/LearningC#/Code/obj/Debug/netstandard2.0/Code.dll
+/home/karan/Documents/Computing/SC/LearningC#/Code/obj/Debug/netstandard2.0/Code.pdb
