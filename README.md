@@ -8,3 +8,4 @@ In the event you actually want to try this code for yourself, feel free to downl
 Here's a rundown of the structure:
 - The `Code` directory contains all the code I have written
 - The `Testing` directory contains all the tests for the programs in the `Code` directory. 
+- In the directories within the `Code` directory you will find the program files, and markdown files called `Brief.md` with the list of exercises which I answered. 
