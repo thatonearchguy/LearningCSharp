@@ -226,3 +226,4 @@ project.lock.json
 */Code/obj/*
 */Testing/bin/*
 */Testing/obj/*
+# This worked very well indeed! Over 120 useless files removed. 
