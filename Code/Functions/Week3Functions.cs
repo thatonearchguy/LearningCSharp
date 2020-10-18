@@ -3,21 +3,8 @@ using System.Collections.Generic;
 
 namespace Code.Functions
 {
-    class Week3Functions
+    public class Week3Functions
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine(Sum(3, 4));
-            Console.WriteLine(SumDigits(32456239));
-            Console.WriteLine(IsPrime(7883));
-            Console.WriteLine(Spaces("T h  i s is a STRANGE test st r    i n g"));
-            int x = 5; 
-            int y = 10;
-            SwapTwo(ref x,ref y);
-            Console.WriteLine($"x = {x} y = {y}");
-            Console.WriteLine(BinaryHex(394832));
-        }
-
         public static int Sum(int x, int y) {return x+y;}
         /*public static int Sum(int x, int y) {return (x * 2) + (y * 2);}*/
         public static int SumDigits(int x){
@@ -51,7 +38,7 @@ namespace Code.Functions
             x = y;
             y = placeholder;
         }
-        static string BinaryHex(int x){
+        public static string BinaryHex(int x){
             //Using some very nice string manipulation to convert to base2 and base 16. 
             return $"Bin: {Convert.ToString(x, 2)}, Hex: {x.ToString("X")}";
         }

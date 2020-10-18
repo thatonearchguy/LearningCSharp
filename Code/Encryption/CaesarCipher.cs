@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Code.Encryption
 {
-    class CaesarCipher
+    public class CaesarCipher
     {
         public static int mod(int x, int m){return (x%m + m)%m;}
         public static string CaesarEncode(string userInput, int shift)

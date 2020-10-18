@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace Code.Lists
 {
-    class Week4Lists
+    public class Week4Lists
     {
         static void Main(string[] args)
         {
@@ -69,16 +69,12 @@ namespace Code.Lists
         static bool IsSubset(List<int> firstList, List<int> secondList){
             bool notsubset = false;
             if (firstList.Count < secondList.Count){
-                foreach (int i in firstList){
-                    if (secondList.Contains(i) == false) notsubset = true;
-                }
+                foreach (int i in firstList) {if (secondList.Contains(i) == false) notsubset = true;}
                 if (notsubset == false) return true;
                 else return false;
             }
             else{
-                foreach (int i in secondList){ 
-                    if (firstList.Contains(i) == false) notsubset = true;
-                }
+                foreach (int i in secondList) {if (firstList.Contains(i) == false) notsubset = true;}
                 if (notsubset == false) return true;
                 else return false;
             }

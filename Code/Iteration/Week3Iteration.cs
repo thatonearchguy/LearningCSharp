@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Code.Iteration
 {
-    class Week3Iteration
+    public class Week3Iteration
     {
 
         /// <summary>
@@ -12,7 +12,7 @@ namespace Code.Iteration
         /// </summary>
         /// <param name="multiplier">What times table you want e.g 4x times table</param>
         /// <param name="rows">How far you want to go, e.g 12x4 or 20x4.</param>
-        static void timesTable(int multiplier, int rows)
+        public static void timesTable(int multiplier, int rows)
         {
             for (int i = 1; i <= rows; i ++)
             {
@@ -25,7 +25,7 @@ namespace Code.Iteration
         /// Generates the total of n numbers and gives their average.
         /// </summary>
         /// <param name="n">How many numbers to input</param>
-        static void Ask10(int n)
+        public static void Ask10(int n)
         {
             double[] numbers = new double[n];
             double total = 0;
@@ -42,7 +42,7 @@ namespace Code.Iteration
         /// </summary>
         /// <param name="n">What index to calculate for</param>
         /// <returns></returns>
-        static int Triangular(int n){
+        public static int Triangular(int n){
             int triangularreturn = (((n+1)*n)/2);
             return triangularreturn;
         }
@@ -51,15 +51,18 @@ namespace Code.Iteration
         /// </summary>
         /// <param name="isbninput">10 digit string with integers and one '?' to denote the missing number</param>
         /// <returns></returns>
-        static int ISBN(string isbninput){
+        public static int ISBN(string isbninput){
             int total = 0;
             int unknownindex = 0;
-            for (int i = 0; i < 10; i ++){
-                if (isbninput[i] != '?') total += (10-i)*Convert.ToInt32(isbninput[i]);
-                else unknownindex = i;
+            int multiplier = 1;
+            for (int i = 0; i < 10; i ++)
+            {
+                if (isbninput[i] != '?') total += (10-i)*int.Parse(isbninput[i].ToString());
+                else unknownindex = (10-i);
             }
-            int remainder = 11-(total % 11);
-            return remainder/unknownindex+1;
+            while ((total + (unknownindex * multiplier))%11 != 0) {multiplier ++;}
+            return multiplier;
+            
         }
         /// <summary>
         /// Counts how far Count Von Count from Sesame Street can count up to on his twitter feed.
@@ -69,7 +72,7 @@ namespace Code.Iteration
         /// <param name="oldTwitter">Is Count Von Count from Sesame Street a Twitter purist? Hit true if he hates the 280char limit</param>
         /// <param name="valediction">Ahs?</param>
         /// <returns>Integer value of the highest number Count Von Count can count up to</returns>
-        static int CountVonCount(bool ands, bool commas, bool oldTwitter, bool valediction){
+        public static int CountVonCount(bool ands, bool commas, bool oldTwitter, bool valediction){
             Dictionary<int, string> numbers = new Dictionary<int, string>(){
                 {1, "one"},
                 {2, "two"},
@@ -119,7 +122,7 @@ namespace Code.Iteration
         /// <param name="commas"></param>
         /// <param name="valediction"></param>
         /// <returns></returns>
-        static int numberGenerator(Dictionary<int, string> numberdict, int number, bool ands, bool commas, bool valediction){
+        public static int numberGenerator(Dictionary<int, string> numberdict, int number, bool ands, bool commas, bool valediction){
             int hundreds = 0;
             int remainder = 0;
             int tenremainder = 0;
@@ -158,7 +161,7 @@ namespace Code.Iteration
         /// Calculates the first value which is doubled after bringing the end digit to the start.
         /// </summary>
         /// <returns>Integer value</returns>
-        static int doublingInt(){
+        public static int doublingInt(){
             bool done = false;
             int workInt = 12;
             int flippedInt = 0;

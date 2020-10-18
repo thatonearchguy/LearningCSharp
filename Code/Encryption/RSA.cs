@@ -6,7 +6,7 @@ using static Code.Encryption.CaesarCipher;
 
 namespace Code.Encryption
 {
-    class RSA
+    public class RSA
     {
         private readonly static RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider();
         public static List<BigInteger> RSAKeyGen()

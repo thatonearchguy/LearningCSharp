@@ -4,7 +4,7 @@ using static Code.Encryption.CaesarCipher;
 
 namespace Code.Encryption
 {
-    class VignereCipher
+    public class VignereCipher
     {
         public static string VignereEncode(string userInput, string key, bool decrypt)
         {

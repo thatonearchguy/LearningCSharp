@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace Code.Files
 {
-	class Week5FileHandling
+	public class Week5FileHandling
 	{
 		private static readonly RNGCryptoServiceProvider RngCsp = new RNGCryptoServiceProvider();
 
