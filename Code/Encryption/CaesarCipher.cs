@@ -5,6 +5,7 @@ namespace Code.Encryption
 {
     public class CaesarCipher
     {
+        public static void Main(string[] args){}
         public static int mod(int x, int m){return (x%m + m)%m;}
         public static string CaesarEncode(string userInput, int shift)
         {

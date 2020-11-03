@@ -6,6 +6,7 @@ namespace Code.Iteration
 {
     public class Week3Iteration
     {
+        public static void Main(string[] args){}
 
         /// <summary>
         /// This function will cleanly output a right justified times table for a set multiplier and number of rows!

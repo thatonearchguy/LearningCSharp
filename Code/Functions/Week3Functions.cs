@@ -5,6 +5,7 @@ namespace Code.Functions
 {
     public class Week3Functions
     {
+        public static void Main(string[] args){}
         public static int Sum(int x, int y) {return x+y;}
         /*public static int Sum(int x, int y) {return (x * 2) + (y * 2);}*/
         public static int SumDigits(int x){

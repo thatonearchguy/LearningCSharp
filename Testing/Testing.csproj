@@ -13,7 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Code\Code.csproj" />
+    <ProjectReference Include="..\Code\Functions\Functions.csproj" />
+    <ProjectReference Include="..\Code\Iteration\Iteration.csproj" />
+    <ProjectReference Include="..\Code\Stacks\Stacks.csproj" />
+    <ProjectReference Include="..\Code\Encryption\Encryption.csproj" />
+    <ProjectReference Include="..\Code\Files\Files.csproj" />
+    <ProjectReference Include="..\Code\Lists\Lists.csproj" />
+    <ProjectReference Include="..\Code\TheBasics\TheBasics.csproj" />
   </ItemGroup>
 
 </Project>

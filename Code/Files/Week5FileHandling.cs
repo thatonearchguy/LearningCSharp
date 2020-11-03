@@ -8,6 +8,7 @@ namespace Code.Files
 {
 	public class Week5FileHandling
 	{
+		public static void Main(string[] args){}
 		private static readonly RNGCryptoServiceProvider RngCsp = new RNGCryptoServiceProvider();
 
 		public static int Mod(int x, int m)
