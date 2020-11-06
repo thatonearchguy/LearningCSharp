@@ -7,18 +7,28 @@ namespace Code.Stacks
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
+            var aStack = new Stack();
+            aStack.Push("B");
+            aStack.Push("m");
+            Console.WriteLine(aStack.Pop());
+            aStack.Push("o");
+            aStack.Push("o");
+            aStack.Pop();
+            aStack.Pop();
+            aStack.Pop();
+            aStack.Pop();
         }
     }
-    class Stack
+    class Stack <T>
     {
-        string[] stack = new string[1000];
+        static int maxSize = 1000;
+        T[] stack = new T[maxSize];
         int stackPointer;
         public Stack()
         {
             stackPointer = -1;
         }
-        private bool Push(string value)
+        public bool Push(T value)
         {
             if (IsFull()) return false;
             else{ 
@@ -26,22 +36,23 @@ namespace Code.Stacks
                 return true;
             }
         }
-        private string Pop()
+        public T Pop()
         {
-            if (stackPointer == -1) return "Stack Underflow";
+            if (stackPointer == -1) throw new System.InvalidOperationException("Stack is empty!");
             else{
-                string value = stack[stackPointer-=1];
-                stack[stackPointer] = "";
+                T value = stack[stackPointer];
+                stack[stackPointer] = default(T);
+                stackPointer -= 1;
                 return value;
             }
         }
-        private string Peek(int pointer)
+        public T Peek(int pointer)
         {
             return stack[pointer+1];
         } 
-        private bool IsFull()
+        public bool IsFull()
         {
-            if (stackPointer > 1000) return true;
+            if (stackPointer > maxSize) return true;
             else return false;
         }
 
