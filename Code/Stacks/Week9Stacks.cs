@@ -7,7 +7,7 @@ namespace Code.Stacks
     {
         public static void Main(string[] args)
         {
-            var aStack = new Stack();
+            var aStack = new Stack<string>();
             aStack.Push("B");
             aStack.Push("m");
             Console.WriteLine(aStack.Pop());
