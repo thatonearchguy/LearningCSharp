@@ -18,7 +18,7 @@ namespace Code.Stacks
             aStack.Pop();
             aStack.Pop();
         }
-        public static int ShuntingAlgorithm(string input)
+        public static string ShuntingAlgorithm(string input)
         {
             var workQueue = new Queue<string>();
             var workStack = new Stack<string>();
@@ -26,16 +26,52 @@ namespace Code.Stacks
             foreach(var token in input)
             {
                 if (char.IsDigit(token)) workQueue.Add(token.ToString());
-                else
+                else 
                 {
-                    if (workStack.IsEmpty()) workStack.Push(token.ToString());
+                    if (workStack.GetPointer() == -1) workStack.Push(token.ToString());
                     else
                     {
-                        var index = operators.Find(n=>n=workStack.Pop());
-                        
+                        string operation = workStack.Peek(workStack.GetPointer());
+                        if (operators.IndexOf(token.ToString()) < 4)
+                        {
+                            while (operators.IndexOf(operation) > operators.IndexOf(token.ToString()))
+                            {
+                                workQueue.Add(workStack.Pop());
+                                operation = workStack.Peek(workStack.GetPointer());
+                            }
+                        }
+                        var existingindex = operators.IndexOf(workStack.Pop());
+                        var tokenindex = operators.IndexOf(token.ToString());
+                        if (tokenindex > 1 && tokenindex < 4 && existingindex < 2)
+                        {
+                            workQueue.Add(operators[existingindex]);
+                            workStack.Push(token.ToString());
+                        } 
+                        else if (tokenindex == 4) workStack.Push(token.ToString());
+                        else if (tokenindex == 5)
+                        {
+                        var checkBracket = workStack.Pop();
+                           while (operators.IndexOf(checkBracket) != 4)
+                            {
+                                workQueue.Add(workStack.Pop());
+                                checkBracket = workStack.Peek(workStack.GetPointer());
+                            }
+
+                        }
+                        else workStack.Push(operators[existingindex]);
                     }
                 }
+            }  
+            var checkOperator = workStack.Pop();
+            if (char.IsDigit(char.Parse(checkOperator))){}
+            else {
+                while (operators.IndexOf(checkOperator) > 0)
+                {
+                    workQueue.Add(checkOperator);
+                    checkOperator = workStack.Pop();
+                }
             }
+            return workQueue.PrintQueue();
         }
         public static int RPN(string input)
         {
@@ -93,6 +129,10 @@ namespace Code.Stacks
                 return values;
             }
         }
+        public string PrintQueue()
+        {
+            return String.Join("", queue);
+        }
         public void clear()
         {
             foreach (T value in queue)
@@ -141,6 +181,10 @@ namespace Code.Stacks
         {
             return stack[pointer+1];
         } 
+        public int GetPointer()
+        {
+            return stackPointer;
+        }
         public bool IsFull()
         {
             if (stackPointer > maxSize) return true;
