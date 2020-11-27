@@ -1,4 +1,4 @@
-﻿﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -6,45 +6,44 @@ namespace BIO_Exercises
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.Write("Enter the number: ");
-            var userInput = Console.ReadLine().ToString();
-            Console.WriteLine(FastPalindrome(userInput));
+            Console.WriteLine(WatchClock(1, 31));
         }
-        public static char[] NumToString(Int64 number)
+        public static List<int> calculateTimes(int fast)
         {
-            return number.ToString().ToCharArray();
+            var Intervals = new List<int>{0, 0};
+            Intervals[1] = fast%60;
+            Intervals[0] = ((fast/60)%24)+1;
+            return Intervals;
         }
-        public static bool IsPalindrome(Int64 input)
+        public static int mod(int x, int m){return (x%m + m)%m;}
+        public static List<int> AddTimes(List<int> clock, List<int> add)
         {
-            while(true)
-            {
-                var numberArray = NumToString(input);
-                var duplicatedArray = NumToString(input);
-                Array.Reverse(numberArray);
-                if(duplicatedArray.SequenceEqual(numberArray) == false) return false;
-                else return true;
-            }
-        }
-        public static Int64 FastPalindrome(string input)
-        {
-            var number = Convert.ToInt64(input)+1;
-            var splitList = new List<int>();
-            if (number<9) return number;
-            else if (IsPalindrome(number) == true) return number;
-            else
-            {
-                foreach(char i in number.ToString()) splitList.Add(Convert.ToInt32(i.ToString()));
-                for (int i = 0; i < splitList.Count()/2; i ++)
+                var newvalue = clock[1]+add[1];
+                if (newvalue > 60)
                 {
-                    while (splitList[i] != splitList[splitList.Count()-1-i])
-                    {
-                        splitList[splitList.Count()-1-i] = (splitList[splitList.Count()-1-i] + 1)%10;
-                    }
+                    clock[1]=mod(newvalue, 60);
+                    clock[0]=mod((newvalue/60),24);
                 }
-            }
-            return Int64.Parse(String.Join("", splitList));
+                else{
+                    clock[1] = newvalue;
+                }
+                clock[0] = mod((clock[0]+add[0]),24);
+                return clock;
         }
+        public static string WatchClock(int firstFast, int secondFast)
+        {
+            var firstClock = new List<int>{0, 0};
+            var secondClock = new List<int>{0, 0};
+            var firstAdd = calculateTimes(firstFast);
+            var secondAdd = calculateTimes(secondFast);
+            do 
+            {
+                firstClock = AddTimes(firstClock, firstAdd);
+                secondClock = AddTimes(secondClock, secondAdd);
+            } while (firstClock.SequenceEqual(secondClock)!=true);
+            return String.Join(':', firstClock.ToArray());
+        }  
     }
 }

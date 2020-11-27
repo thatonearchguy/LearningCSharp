@@ -7,16 +7,7 @@ namespace Code.Stacks
     {
         public static void Main(string[] args)
         {
-            var aStack = new Stack<string>();
-            aStack.Push("B");
-            aStack.Push("m");
-            Console.WriteLine(aStack.Pop());
-            aStack.Push("o");
-            aStack.Push("o");
-            aStack.Pop();
-            aStack.Pop();
-            aStack.Pop();
-            aStack.Pop();
+            Console.WriteLine(ShuntingAlgorithm("4+2/(9−3)"));
         }
         public static string ShuntingAlgorithm(string input)
         {
@@ -50,13 +41,14 @@ namespace Code.Stacks
                         else if (tokenindex == 4) workStack.Push(token.ToString());
                         else if (tokenindex == 5)
                         {
-                        var checkBracket = workStack.Pop();
-                           while (operators.IndexOf(checkBracket) != 4)
-                            {
-                                workQueue.Add(workStack.Pop());
-                                checkBracket = workStack.Peek(workStack.GetPointer());
+                            if (!workStack.IsEmpty()) {
+                                var checkBracket = workStack.Pop();
+                                while (operators.IndexOf(checkBracket) != 4)
+                                {
+                                    workQueue.Add(workStack.Pop());
+                                    checkBracket = workStack.Peek(workStack.GetPointer());
+                                }
                             }
-
                         }
                         else workStack.Push(operators[existingindex]);
                     }
